@@ -17,7 +17,7 @@ def analyze_pod_logs(logs):
         max_tokens=50,  # Set the desired length of the completion
         temperature=0.7  # Adjust the temperature parameter as needed
     )
-    completion = response.choices[0].text.strip()
+        completion = response.choices[0].text.strip()
 
     return completion
 
