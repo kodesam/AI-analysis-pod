@@ -25,6 +25,15 @@ def analyze_pod_logs(logs):
 
     return analysis_result
 
+    pod_logs = """
+    [2022-01-01 10:00:00] INFO: Application started successfully
+    [2022-01-01 10:01:00] WARNING: Disk usage above threshold
+    [2022-01-01 10:02:00] ERROR: Database connection failed
+    """
+
+    analysis_result = analyze_pod_logs(pod_logs)
+    print(analysis_result)
+
 def main():
     st.title("Pod Log Analyzer")
 
