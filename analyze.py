@@ -11,13 +11,13 @@ def analyze_pod_logs(logs):
     # ...
 
     # Use OpenAI's text completion API to generate analysis based on the pod logs
-        response = openai.Completion.create(
+    response = openai.Completion.create(
         engine='text-davinci-003',
         prompt=logs,
         max_tokens=50,  # Set the desired length of the completion
         temperature=0.7  # Adjust the temperature parameter as needed
     )
-        completion = response.choices[0].text.strip()
+    completion = response.choices[0].text.strip()
 
     return completion
 
