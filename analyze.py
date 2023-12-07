@@ -1,5 +1,6 @@
 import streamlit as st
 from openai import OpenAI
+import openai
 
 def analyze_pod_logs(logs):
     # Perform log analysis logic using OpenAI
