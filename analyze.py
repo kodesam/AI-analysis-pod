@@ -24,6 +24,6 @@ def main():
 
 if __name__ == "__main__":
     # Set up OpenAI API credentials
-    openai.api_key = "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"
+    openai.api_key = "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"
 
     main()
