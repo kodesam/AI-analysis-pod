@@ -4,7 +4,7 @@ import openai
 
 
 # Set up OpenAI API credentials
-openai.api_key = "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"
+openai.api_key = "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"
 
 def analyze_pod_logs(logs):
     # Perform log analysis logic using OpenAI
@@ -21,7 +21,7 @@ def analyze_pod_logs(logs):
 
     return completion
 
-    analysis_result = "Example Analysis Result"
+     # analysis_result = "Example Analysis Result"
 
     return analysis_result
 
