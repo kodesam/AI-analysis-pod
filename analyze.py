@@ -1,3 +1,21 @@
+import streamlit as st
+
+    
+
+
+# Get the input pod logs from user input in Streamlit
+logs_input = st.text_area("Enter Pod Logs")
+
+# Analyze the pod logs when the user clicks the "Analyze" button
+if st.button("Analyze"):
+    # Perform log analysis
+    analysis_result = analyze_pod_logs(logs_input)
+
+    # Display the analysis results in Streamlit
+    st.write("Analysis Results:")
+    st.write(analysis_result)
+
+
 def analyze_pod_logs(logs):
     # Split the logs into individual lines
     log_lines = logs.splitlines()
@@ -22,7 +40,8 @@ def analyze_pod_logs(logs):
         "timestamps": timestamps,
         "total_lines": total_lines
     }
-
+    
+    return analysis_result
 
 # Example logs variable for testing
 logs = """
