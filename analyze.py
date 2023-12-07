@@ -2,9 +2,15 @@ import streamlit as st
 from openai import OpenAI
 import openai
 
+
+# Set up OpenAI API credentials
+openai.api_key = "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"
+
 def analyze_pod_logs(logs):
     # Perform log analysis logic using OpenAI
     # ...
+
+    analysis_result = "Example Analysis Result"
 
     return analysis_result
 
@@ -24,7 +30,4 @@ def main():
         st.write(analysis_result)
 
 if __name__ == "__main__":
-    # Set up OpenAI API credentials
-    openai.api_key = "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"
-
     main()
