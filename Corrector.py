@@ -1,5 +1,6 @@
 import streamlit as st
 import yaml
+from difflib import Differ
 
 def correct_spacing(filename):
     try:
@@ -22,15 +23,39 @@ def main():
     
     if uploaded_file is not None:
         # Saving uploaded YAML to a temporary file
-        with open('temp.yaml', 'wb') as file:
+        with open('original.yaml', 'wb') as file:
             file.write(uploaded_file.read())
         
         # Correct the spacing
-        corrected_yaml = correct_spacing('temp.yaml')
+        corrected_yaml = correct_spacing('original.yaml')
         
         if corrected_yaml:
-            # Display the corrected YAML on the screen
-            st.text_area("Corrected YAML", value=corrected_yaml, height=500)
+            st.subheader("Difference")
+            
+            d = Differ()
+            diff = list(d.compare(uploaded_file.getvalue().decode('utf-8').splitlines(), corrected_yaml.splitlines()))
+            
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.subheader("Original YAML")
+                st.code(uploaded_file.getvalue().decode('utf-8'))
+            
+            with col2:
+                st.subheader("Corrected YAML")
+                st.code(corrected_yaml)
+            
+            st.subheader("Diff")
+            diff_text = ""
+            for line in diff:
+                if line.startswith('- '):
+                    diff_text += f"**{line}**\n"
+                elif line.startswith('+ '):
+                    diff_text += f"^{line}^\n"
+            
+            st.text_area("Difference", value=diff_text, height=500)
+        else:
+            st.sidebar.info("Please upload a valid Ansible Script YAML file.")
     else:
         st.sidebar.info("Please upload an Ansible Script YAML file.")
 
