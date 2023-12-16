@@ -1,0 +1,12 @@
+- name: Get Custom Operator info
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Execute kubectl get command
+      command:
+        cmd: "kubectl get customresourcedefinitions"
+      register: custom_operators_info
+
+    - name: Print custom operators info
+      debug:
+        var: custom_operators_info.stdout_lines
