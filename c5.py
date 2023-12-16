@@ -3,6 +3,32 @@ import ruamel.yaml
 import streamlit as st
 import base64
 
+# Set the page title and favicon
+st.set_page_config(page_title="YAML Indentation Correction", page_icon=":pencil:")
+
+# Set the background color and padding for the whole app
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f5f5f5;
+        padding: 1rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Title and heading
+st.title("YAML Indentation Correction")
+st.markdown("Use this app to correct the indentation of YAML files.")
+
+# Developed by section
+st.markdown("---")
+st.markdown("**Developed by:** Syed Aamir")
+st.markdown("**GitHub:** [Your GitHub URL](https://github.com/kodesam)")
+st.markdown("---")
+
 def correct_indentation(input_file, output_file):
     try:
         # Create YAML instance

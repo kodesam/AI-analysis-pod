@@ -1,0 +1,40 @@
+allowVolumeExpansion: true
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "4"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"allowVolumeExpansion":true,"apiVersion":"storage.k8s.io/v1","kind":"StorageClass","metadata":{"annotations":{"argocd.argoproj.io/sync-options":"SkipDryRunOnMissingResource=true","argocd.argoproj.io/sync-wave":"4"},"labels":{"app.kubernetes.io/instance":"hpe-csi-driver"},"name":"3par-rwx"},"parameters":{"accessProtocol":"fc","compression":"false","cpg":"CPG005_R6_SSD","csi.storage.k8s.io/controller-expand-secret-name":"hpe-backend-secret","csi.storage.k8s.io/controller-expand-secret-namespace":"hpe-storage","csi.storage.k8s.io/controller-publish-secret-name":"hpe-backend-secret","csi.storage.k8s.io/controller-publish-secret-namespace":"hpe-storage","csi.storage.k8s.io/fstype":"xfs","csi.storage.k8s.io/node-publish-secret-name":"hpe-backend-secret","csi.storage.k8s.io/node-publish-secret-namespace":"hpe-storage","csi.storage.k8s.io/node-stage-secret-name":"hpe-backend-secret","csi.storage.k8s.io/node-stage-secret-namespace":"hpe-storage","csi.storage.k8s.io/provisioner-secret-name":"hpe-backend-secret","csi.storage.k8s.io/provisioner-secret-namespace":"hpe-storage","description":"Volume created by OpenShift","fsMode":"0777","hostSeesVLUN":"true","nfsProvisionerImage":"jfrog-caas-telco-prod.internal.vodafone.nl/caas-mobile-containers-virtual/hpestorage/nfs-provisioner:v3.0.1","nfsResources":"true","provisioningType":"tpvv","snapCpg":"CPG005_R6_SSD"},"provisioner":"csi.hpe.com","reclaimPolicy":"Delete","volumeBindingMode":"Immediate"}
+  creationTimestamp: "2023-12-04T13:42:24Z"
+  labels:
+    app.kubernetes.io/instance: hpe-csi-driver
+  name: 3par-rwx
+  resourceVersion: "67473972"
+  uid: d6bbe82a-63c2-4e98-9dc2-d7f498089a47
+parameters:
+  accessProtocol: fc
+  compression: "false"
+    cpg: CPG005_R6_SSD
+  csi.storage.k8s.io/controller-expand-secret-name: hpe-backend-secret
+  csi.storage.k8s.io/controller-expand-secret-namespace: hpe-storage
+  csi.storage.k8s.io/controller-publish-secret-name: hpe-backend-secret
+  csi.storage.k8s.io/controller-publish-secret-namespace: hpe-storage
+  csi.storage.k8s.io/fstype: xfs
+  csi.storage.k8s.io/node-publish-secret-name: hpe-backend-secret
+  csi.storage.k8s.io/node-publish-secret-namespace: hpe-storage
+  csi.storage.k8s.io/node-stage-secret-name: hpe-backend-secret
+  csi.storage.k8s.io/node-stage-secret-namespace: hpe-storage
+  csi.storage.k8s.io/provisioner-secret-name: hpe-backend-secret
+  csi.storage.k8s.io/provisioner-secret-namespace: hpe-storage
+  description: Volume created by OpenShift
+  fsMode: "0777"
+  hostSeesVLUN: "true"
+  nfsProvisionerImage: jfrog-caas-telco-pro
+  nfsResources: "true"
+  provisioningType: tpvv
+  snapCpg: CPG005_R6_SSD
+provisioner: csi.hpe.com
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
